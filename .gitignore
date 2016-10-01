@@ -77,3 +77,4 @@ ENV/
 blog/migrations/
 static/.DS_Store
 static/fonts/.DS_Store
+/config/settings/local.py

@@ -2,16 +2,16 @@ from .base import *
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mysite',
-        'USER': 'grana',
-        'PASSWORD': 'usha1234',
-        'HOST': 'mysite-dev.chekrprgdtfv.ap-southeast-1.rds.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'db-name',
+        'USER': 'db-user',
+        'PASSWORD': 'db-pwd',
+        'HOST': 'db-host',
+        'PORT': 'db-port',
     }
 }
