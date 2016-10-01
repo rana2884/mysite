@@ -1,1 +1,32 @@
-hi
+grana2884/mysite:
+ Build:
+  - ls -lRa
+ 
+ PkgInclude:
+  - '*'
+ 
+ PkgExclude:
+  - README.md
+  
+ Env:
+  - DB_HOST: unknown		
+  - DB_NAME: unknown		
+  - DB_USER: unknown		
+  - DB_PASSWORD: unknown		
+  - DB_PORT: unknown
+  - ENVIRONMENT: unknown
+
+ PreInstall:
+  - echo "===Begin Preinstall==="
+  - echo "Nothing to do in Preinstall"
+  - echo "=====Done with Preinstall======" 
+  
+ PostInstall:
+  - echo "===Begin PostInstall==="
+  - ls -lRa
+
+ Start:
+  - echo "===Begin Start==="
+  - echo "Nothing to do Start"
+  - echo "=====Done with Start======" 
+  - echo "===============APPLICATION READY=================" 
