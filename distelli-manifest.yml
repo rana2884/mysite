@@ -14,6 +14,7 @@ grana2884/mysite:
   - DB_USER: unknown		
   - DB_PASSWORD: unknown		
   - DB_PORT: unknown
+  - ROOT: unknown
   - ENVIRONMENT: unknown
 
  PreInstall:
@@ -24,18 +25,18 @@ grana2884/mysite:
  PostInstall:
   - echo "===Begin PostInstall==="
   - ls -lRa
-  - sudo rsync -a /$DISTELLI_INSTALLHOME/* /home/ubuntu/mysite/
+  - sudo rsync -a /$DISTELLI_INSTALLHOME/* $ROOT/
   - echo "===Done with PostInstall==="
 
  PreStart:
   - echo "===Begin PreStart==="
-  - sudo sed -i 's/db-host/'$DB_HOST'/g' /home/ubuntu/mysite/config/settings/prod.py
-  - sudo sed -i 's/db-name/'$DB_NAME'/g' /home/ubuntu/mysite/config/settings/prod.py
-  - sudo sed -i 's/db-user/'$DB_USER'/g' /home/ubuntu/mysite/config/settings/prod.py
-  - sudo sed -i 's/db-pwd/'$DB_PASSWORD'/g' /home/ubuntu/mysite/config/settings/prod.py
-  - sudo sed -i 's/db-port/'$DB_PORT'/g' /home/ubuntu/mysite/config/settings/prod.py
-  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/config/wsgi.py
-  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/manage.py
+  - sudo sed -i 's/db-host/'$DB_HOST'/g' $ROOT/config/settings/prod.py
+  - sudo sed -i 's/db-name/'$DB_NAME'/g' $ROOT/config/settings/prod.py
+  - sudo sed -i 's/db-user/'$DB_USER'/g' $ROOT/config/settings/prod.py
+  - sudo sed -i 's/db-pwd/'$DB_PASSWORD'/g' $ROOT/config/settings/prod.py
+  - sudo sed -i 's/db-port/'$DB_PORT'/g' $ROOT/config/settings/prod.py
+  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' $ROOT/config/wsgi.py
+  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' $ROOT/manage.py
   - echo "===Done with PreStart==="
 
  Start:
