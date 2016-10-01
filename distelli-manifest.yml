@@ -35,7 +35,7 @@ grana2884/mysite:
   - sudo sed -i 's/db-pwd/'$DB_PASSWORD'/g' /home/ubuntu/mysite/config/settings/prod.py
   - sudo sed -i 's/db-port/'$DB_PORT'/g' /home/ubuntu/mysite/config/settings/prod.py
   - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/config/wsgi.py
-  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/config/manage.py
+  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/manage.py
 
  Start:
   - echo "===Begin Start==="
