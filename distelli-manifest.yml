@@ -24,6 +24,18 @@ grana2884/mysite:
  PostInstall:
   - echo "===Begin PostInstall==="
   - ls -lRa
+  - sudo rsync -a /$DISTELLI_INSTALLHOME/* /home/ubuntu/mysite/
+  - echo "===Done with PostInstall==="
+
+ PreStart:
+  - echo "===Begin PreStart==="
+  - sudo sed -i 's/db-host/'$DB_HOST'/g' /home/ubuntu/mysite/config/settings/prod.py
+  - sudo sed -i 's/db-name/'$DB_NAME'/g' /home/ubuntu/mysite/config/settings/prod.py
+  - sudo sed -i 's/db-user/'$DB_USER'/g' /home/ubuntu/mysite/config/settings/prod.py
+  - sudo sed -i 's/db-pwd/'$DB_PASSWORD'/g' /home/ubuntu/mysite/config/settings/prod.py
+  - sudo sed -i 's/db-port/'$DB_PORT'/g' /home/ubuntu/mysite/config/settings/prod.py
+  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/config/wsgi.py
+  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' /home/ubuntu/mysite/config/manage.py
 
  Start:
   - echo "===Begin Start==="
