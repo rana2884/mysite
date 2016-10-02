@@ -11,7 +11,7 @@ def blog(request):
 
 
 def post(request, pk):
-    return render(request, 'blog/post.html', {'mypost': Post.objects.get(id=pk)})
+    return render(request, 'blog/post.html', {'mypost': Post.objects.get(id=pk),'mylist': Post.objects.all().order_by("-date")})
 
 
 def contact(request):

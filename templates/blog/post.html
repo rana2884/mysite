@@ -5,6 +5,20 @@
 {% block title %} Gaurav S Rana | Blog {% endblock %}
 
 {% block content %}
-        <h5>{{ mypost.date|date:"d-m-Y" }} {{ mypost.title }}</h5>
-        <p> {{ mypost.body | safe | linebreaks }}</p>
+    <div class="row">
+    <div class="col-md-4">
+        <h5>Blog List</h5>
+        <ul class="text-left">
+         {% for post in mylist %}
+             <li><a href="/blog/{{ post.id }}">{{ post.title }}</a></li>
+         {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-8 text-left">
+      <h4>{{ mypost.title }}</h4>
+      <h6>{{ mypost.date|date:"d-m-Y" }}</h6>
+      <hr>
+      <p> {{ mypost.body | safe | linebreaks }} </p>
+    </div>
+  </div>
 {% endblock %}
