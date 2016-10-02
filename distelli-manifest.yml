@@ -27,6 +27,7 @@ grana2884/mysite:
   - echo "===Begin PostInstall==="
   - ls -lRa
   - sudo rsync -a /$DISTELLI_INSTALLHOME/* $ROOT/
+  - sudo chown -R www-data:www-data $ROOT
   - echo "===Done with PostInstall==="
 
  PreStart:
