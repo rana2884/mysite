@@ -10,9 +10,7 @@
       <img src="{% static 'images/gsr.jpg' %}" class="img-responsive img-rounded center-block" alt="Gaurav S Rana" height="125" width="125">
       <p class="text-center"><a href="https://twitter.com/gauravranadce"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
       <a href="https://in.linkedin.com/in/grana2884"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-      <a href="https://github.com/grana2884"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-      <a href="https://angel.co/rana2884"><i class="fa fa-angellist fa-2x" aria-hidden="true"></i></a>
-      <a href="https://www.facebook.com/gauravrana.dce"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></p>
+      <a href="https://github.com/grana2884"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></p>
       <h5 class="text-left">WORK</h5>
        <ul class="list-unstyled text-left">
          <li>Urjakart.com</li>
@@ -32,13 +30,11 @@
       </ul>
     </div>
     <div class="col-md-9 text-left">
-         <h4>My Blog</h4>
+         <h4>Blog & Articles</h4>
          <hr>
          {% for post in mylist %}
          <h5>{{ post.date|date:"d-m-Y" }} | <a href="/blog/{{ post.id }}">{{ post.title }}</a></h5>
          {% endfor %}
     </div>
   </div>
- </div>
-
 {% endblock %}
