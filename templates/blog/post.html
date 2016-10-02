@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h5>Blog List</h5>
         <ul class="text-left">
          {% for post in mylist %}
@@ -14,7 +14,7 @@
          {% endfor %}
         </ul>
     </div>
-    <div class="col-md-8 text-left">
+    <div class="col-md-9 text-left">
       <h4>{{ mypost.title }}</h4>
       <h6>{{ mypost.date|date:"d-m-Y" }}</h6>
       <hr>
