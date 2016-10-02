@@ -7,11 +7,11 @@ def index(request):
 
 
 def blog(request):
-    return render(request, 'blog/blog.html', {'blog_list': Post.objects.all().order_by("-date")})
+    return render(request, 'blog/blog.html', {'mylist': Post.objects.all().order_by("-date")})
 
 
 def post(request, pk):
-    return render(request, 'blog/post.html', {'blog_post': Post.objects.get(id=pk)})
+    return render(request, 'blog/post.html', {'mypost': Post.objects.get(id=pk)})
 
 
 def contact(request):
