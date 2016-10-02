@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 
@@ -11,7 +11,7 @@ def blog(request):
 
 
 def post(request, pk):
-    return render(request, 'blog/post.html', {'blog_post': Post.objects.get(id=pk)})
+    return render(request, 'blog/post.html', {'blog_post': get_object_or_404(Post.objects.get(id=pk))})
 
 
 def contact(request):
