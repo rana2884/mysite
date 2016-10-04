@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'bootstrap3',
+    'captcha',
 ]
 
 MIDDLEWARE = [
