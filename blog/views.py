@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from .forms import ContactForm
 
 
 def index(request):
@@ -15,4 +16,12 @@ def post(request, pk):
 
 
 def contact(request):
-    return render(request, 'blog/contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            form = ContactForm()
+            return render(request, 'blog/contact.html', {'form': form, 'thank': True})
+    else:
+        form = ContactForm()
+    return render(request, 'blog/contact.html', {'form': form})

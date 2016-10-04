@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
+{% load bootstrap3 %}
 {% load static %}
 
-{% block title %} Gaurav S Rana | Contact {% endblock %}
+{% bootstrap_messages %}
+
+{% block title %}Gaurav S Rana | Contact{% endblock %}
+{% block description %}Gaurav Singh Rana's personal website and blog. Contact me for any questions.{% endblock %}
 
 {% block content %}
     <div class="row">
@@ -34,6 +38,26 @@
       <h4>Contact Me</h4>
       <hr>
       <p> Mail me: gauravranadce AT gmail.com </p>
-    </div>
+      <hr>
+          {% if form.errors %}
+          <p style="color: red;text-align: center;">
+            Please correct the error{{ form.errors|pluralize }} below.
+          </p>
+         {% endif %}
+
+         {% if thank %}
+          <p style="color: green; text-align: center;">
+            Thank you for contacting, I will get back to you shortly.
+          </p>
+        {% endif %}
+
+        <form id="contact_form" method="post" action="">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              {% buttons %}
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              {% endbuttons %}
+          </form>
+     </div>
   </div>
 {% endblock %}

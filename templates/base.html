@@ -3,8 +3,13 @@
 
 <head>
   <title> {% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% endblock %}">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="INDEX,FOLLOW">
+  <meta name="copyright" content="2016 Gaurav S Rana">
+  <meta name="author" content="Gaurav S Rana">
+
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
