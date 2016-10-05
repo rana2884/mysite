@@ -51,14 +51,15 @@
           </p>
         {% endif %}
 
+        <p style="color: red;">{{ login_msg }}</p>
+
         <form id="contact_form" method="post" action="">
               {% csrf_token %}
               {% bootstrap_form form %}
               {% buttons %}
               <button type="submit" class="btn btn-primary">Send Message</button>
               {% endbuttons %}
-
-          </form>
+        </form>
      </div>
   </div>
 {% endblock %}

@@ -46,7 +46,18 @@
         <li><a href="/contact"><i class="fa fa-beer fa-fw" aria-hidden="true"></i> Contact</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+             <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ user.username }}<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+            <li><a href="#">Info</a></li>
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
             <li><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Login</a></li>
+            {% endif %}
+             </ul>
+            </li>
+
             <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     	    <div class="modal-dialog">
 				<div class="loginmodal-container">
@@ -57,13 +68,13 @@
 					  <input type="password" name="password" placeholder="Password">
 					  <input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
-
 				  <div class="login-help">
 					<a href="#">Register</a> - <a href="#">Forgot Password</a>
 				  </div>
 				</div>
 			</div>
 		  </div>
+
         </ul>
     </div>
   </div>
