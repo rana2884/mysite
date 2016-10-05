@@ -44,6 +44,7 @@ grana2884/mysite:
 
  Start:
   - echo "===Begin Start==="
-  - echo "Nothing to do Start"
+  - sudo service nginx restart
+  - sudo service uwsgi restart
   - echo "=====Done with Start======" 
   - echo "===============APPLICATION READY=================" 
