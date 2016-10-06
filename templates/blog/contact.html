@@ -35,24 +35,10 @@
         <a class="twitter-timeline" data-lang="en" data-height="250" href="https://twitter.com/gauravranadce"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
     <div class="col-md-9 text-left">
+        {% include 'blog/messages.html' %}
       <h4>Contact Me</h4>
       <hr>
       <p> Mail me: gauravranadce AT gmail.com </p>
-      <hr>
-          {% if form.errors %}
-          <p style="color: red;text-align: center;">
-            Please correct the error{{ form.errors|pluralize }} below.
-          </p>
-         {% endif %}
-
-         {% if thank %}
-          <p style="color: green; text-align: center;">
-            Thank you for contacting, I will get back to you shortly.
-          </p>
-        {% endif %}
-
-        <p style="color: red;">{{ login_msg }}</p>
-
         <form id="contact_form" method="post" action="">
               {% csrf_token %}
               {% bootstrap_form form %}

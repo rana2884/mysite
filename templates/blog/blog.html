@@ -32,7 +32,7 @@
         <a class="twitter-timeline" data-lang="en" data-height="250" href="https://twitter.com/gauravranadce"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
     <div class="col-md-9 text-left">
-         <p style="color: red;">{{ login_msg }}</p>
+        {% include 'blog/messages.html' %}
          <h4>Blog & Articles</h4>
          <hr>
          {% for post in mylist %}
