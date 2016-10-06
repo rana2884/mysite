@@ -2,7 +2,7 @@ import os
 from django.contrib.messages import constants as messages
 
 
-# Messaging Framework
+# Messaging with bootstrap
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
@@ -17,6 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = [
     '.gsrana.com',
 ]
+
+LOGIN_URL = '/'
 
 # Application definition
 INSTALLED_APPS = [

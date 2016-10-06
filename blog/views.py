@@ -1,14 +1,18 @@
 from django.shortcuts import render, redirect
+from django.utils import http
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import ContactForm
 
 
 def index(request):
     if request.method == 'POST' and request.POST['login'] == 'Login':
+        redirect_to = request.POST.get('next', request.GET.get('next', '/'))
+        redirect_to = (redirect_to if http.is_safe_url(redirect_to, request.get_host()) else '/')
         login_user(request)
-        return redirect(index)
+        return redirect(redirect_to)
     else:
         return render(request, 'blog/home.html')
 
@@ -26,7 +30,8 @@ def post(request, pk):
         login_user(request)
         return redirect(post)
     else:
-        return render(request, 'blog/post.html', {'mypost': Post.objects.get(id=pk),'mylist': Post.objects.all().order_by("-date")})
+        return render(request, 'blog/post.html',
+                      {'mypost': Post.objects.get(id=pk), 'mylist': Post.objects.all().order_by("-date")})
 
 
 def contact(request):
@@ -49,24 +54,28 @@ def contact(request):
     return render(request, 'blog/contact.html', {'form': form})
 
 
+@login_required
 def logout_view(request):
-        logout(request)
-        messages.error(request, 'You have been logged out!')
-        return redirect(index)
+    logout(request)
+    messages.error(request, 'You have been logged out!')
+    return redirect(index)
+
+
+@login_required
+def account_view(request):
+    return render(request, 'account/account.html')
 
 
 # Helper function
 def login_user(request):
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user:
-            if user.is_active:
-                login(request, user)
-                messages.success(request, 'You are logged in!')
-            else:
-                messages.warning(request, 'Your account is disabled!')
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user:
+        if user.is_active:
+            login(request, user)
+            messages.success(request, 'You are logged in!')
         else:
-            messages.error(request, 'Invalid login details')
-
-
+            messages.warning(request, 'Your account is disabled!')
+    else:
+        messages.error(request, 'Invalid login details')

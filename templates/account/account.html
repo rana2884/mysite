@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} My Dashboard{% endblock %}
+{% block description %}Gaurav Singh Rana's personal website and blog.{% endblock %}
+
+{% block content %}
+    <div class="row">
+    <div class="col-md-3">
+        <h5>My Dashboard</h5>
+        <ul class="text-left">
+             <li>hi</li>
+        </ul>
+    </div>
+    <div class="col-md-9 text-left">
+        {% include 'messages.html' %}
+        hello
+    </div>
+  </div>
+{% endblock %}
