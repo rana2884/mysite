@@ -67,6 +67,6 @@ def login_user(request):
             else:
                 messages.warning(request, 'Your account is disabled!')
         else:
-            messages.error(request, 'Your account is disabled!')
+            messages.error(request, 'Invalid login details')
 
 
