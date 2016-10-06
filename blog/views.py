@@ -17,7 +17,7 @@ def index(request):
         return render(request, 'blog/home.html')
 
 
-def blog(request):
+def blog_view(request):
     if request.method == 'POST' and request.POST['login'] == 'Login':
         login_user(request)
         return redirect(blog)
@@ -25,7 +25,7 @@ def blog(request):
         return render(request, 'blog/blog.html', {'mylist': Post.objects.all().order_by("-date")})
 
 
-def post(request, pk):
+def post_view(request, pk):
     if request.method == 'POST' and request.POST['login'] == 'Login':
         login_user(request)
         return redirect(post)
@@ -34,7 +34,7 @@ def post(request, pk):
                       {'mypost': Post.objects.get(id=pk), 'mylist': Post.objects.all().order_by("-date")})
 
 
-def contact(request):
+def contact_view(request):
     if request.method == 'POST':
         try:
             x = request.POST['login']
@@ -59,11 +59,6 @@ def logout_view(request):
     logout(request)
     messages.error(request, 'You have been logged out!')
     return redirect(index)
-
-
-@login_required
-def account_view(request):
-    return render(request, 'account/account.html')
 
 
 # Helper function
