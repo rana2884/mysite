@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from blog.decorators import login_required_message_and_redirect
 
 
-@login_required
+@login_required_message_and_redirect()
 def index(request):
     return render(request, 'dashboard/base.html')
