@@ -1,10 +1,10 @@
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.utils import http
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
-from .decorators import login_required_message_and_redirect
-from .models import Post
+from core.decorators import login_required_message_and_redirect
 from .forms import ContactForm
+from .models import Post
 
 
 def index(request):
@@ -54,7 +54,7 @@ def contact_view(request):
     return render(request, 'blog/contact.html', {'form': form})
 
 
-@login_required_message_and_redirect()
+@login_required_message_and_redirect
 def logout_view(request):
     logout(request)
     messages.error(request, 'You have been logged out!')
