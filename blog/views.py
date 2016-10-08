@@ -20,7 +20,7 @@ def index(request):
 def blog_view(request):
     if request.method == 'POST' and request.POST['login'] == 'Login':
         login_user(request)
-        return redirect(blog)
+        return redirect(blog_view)
     else:
         return render(request, 'blog/blog.html', {'mylist': Post.objects.all().order_by("-date")})
 
@@ -28,7 +28,7 @@ def blog_view(request):
 def post_view(request, pk):
     if request.method == 'POST' and request.POST['login'] == 'Login':
         login_user(request)
-        return redirect(post)
+        return redirect(post_view)
     else:
         return render(request, 'blog/post.html',
                       {'mypost': Post.objects.get(id=pk), 'mylist': Post.objects.all().order_by("-date")})
@@ -42,13 +42,13 @@ def contact_view(request):
             x = None
         if x == 'Login':
             login_user(request)
-            return redirect(contact)
+            return redirect(contact_view)
         else:
             form = ContactForm(request.POST)
             if form.is_valid():
                 form.save(commit=True)
                 messages.success(request, 'Thank you for contacting, I will get back to you shortly!')
-                return redirect(contact)
+                return redirect(contact_view)
     else:
         form = ContactForm()
     return render(request, 'blog/contact.html', {'form': form})
