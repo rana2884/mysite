@@ -31,31 +31,31 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">GSR</a>
+      <a class="navbar-brand" href="{% url 'blog-index'%}">GSR</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home</a></li>
-        <li><a href="/blog"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Blog</a></li>
+        <li><a href="{% url 'blog-index'%}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home</a></li>
+        <li><a href="{% url 'blog-list'%}"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Blog</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-code fa-fw" aria-hidden="true"></i> NLP<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Sentiment Analysis</a></li>
           </ul>
         </li>
-        <li><a href="/contact"><i class="fa fa-beer fa-fw" aria-hidden="true"></i> Contact</a></li>
+        <li><a href="{% url 'contact'%}"><i class="fa fa-beer fa-fw" aria-hidden="true"></i> Contact</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ user.username }}<span class="caret"></span></a>
              <ul class="dropdown-menu">
-            <li><a href="/dashboard">My Dashboard</a></li>
+            <li><a href="{% url 'dashboard-index'%}">My Dashboard</a></li>
                 {% if user.is_staff %}
                 <li><a href="/admin">My Admin</a></li>
                 {% endif %}
                 <li class="divider"></li>
-            <li><a href="/logout">Logout</a></li>
+            <li><a href="{% url 'logout'%}">Logout</a></li>
             {% else %}
             <li><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Login</a></li>
             {% endif %}
