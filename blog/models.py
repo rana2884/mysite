@@ -22,8 +22,9 @@ class Contact(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    picture = models.ImageField(upload_to='profile_img', blank='True')
-    website = models.URLField(blank=True)
+    mobile = models.CharField(max_length=12, default='null')
+    email = models.CharField(max_length=120, default='null')
+    address = models.TextField(default='null')
 
     def __str__(self):
         return self.user.username
