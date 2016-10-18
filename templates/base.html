@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<!-- Page meta -->
   <title> {% block title %}{% endblock %}</title>
   <meta name="description" content="{% block description %}{% endblock %}">
   <meta charset="utf-8">
@@ -9,9 +9,9 @@
   <meta name="robots" content="INDEX,FOLLOW">
   <meta name="copyright" content="2016 Gaurav S Rana">
   <meta name="author" content="Gaurav S Rana">
-
+<!-- Page meta end -->
   {% load static %}
-
+<!-- CSS and JS -->
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/my.css' %}" type="text/css">
@@ -19,10 +19,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/my.js' %}"></script>
+<!-- CSS and JS end -->
 </head>
 
 <body>
+<!-- Body main-->
 <div id="wrap">
+<!-- Header -->
  <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -34,7 +37,8 @@
       <a class="navbar-brand" href="{% url 'blog-index'%}">GSR</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
+        <!-- Navbar left -->
+        <ul class="nav navbar-nav">
         <li><a href="{% url 'blog-index'%}"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home</a></li>
         <li><a href="{% url 'blog-list'%}"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Blog</a></li>
         <li class="dropdown">
@@ -45,6 +49,8 @@
         </li>
         <li><a href="{% url 'contact'%}"><i class="fa fa-beer fa-fw" aria-hidden="true"></i> Contact</a></li>
       </ul>
+        <!-- Navbar left end -->
+        <!-- Navbar right -->
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
                 <li><a href="#" data-toggle="modal" data-target="#signup-modal"> Sign-up!</a></li>
@@ -94,18 +100,24 @@
 					  <input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
 			</div>
-		  </div>
-
+		   </div>
+           </div>
         </ul>
+        <!-- Navbar right end -->
     </div>
+        <!-- Navbar collapse end -->
   </div>
  </nav>
+<!-- Header end -->
+<!-- Container -->
     <div class="container">
        {% block content %}
        {% endblock %}
     </div>
+<!-- Container end -->
 </div>
-
+<!-- Body main end -->
+<!-- Footer -->
 <div id="footer">
   <div class="container">
     <div class="row">
@@ -117,5 +129,6 @@
     </div>
   </div>
 </div>
+<!-- Footer end -->
 </body>
 </html>
