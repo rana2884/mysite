@@ -53,7 +53,6 @@
         <!-- Navbar right -->
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-                <li><a href="#" data-toggle="modal" data-target="#signup-modal"> Sign-up!</a></li>
              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ user.username }}<span class="caret"></span></a>
              <ul class="dropdown-menu">
@@ -64,6 +63,7 @@
                 <li class="divider"></li>
             <li><a href="{% url 'logout'%}">Logout</a></li>
             {% else %}
+                <li><a href="#" data-toggle="modal" data-target="#signup-modal"> Sign-up!</a></li>
             <li><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i> Login</a></li>
             {% endif %}
              </ul>
@@ -77,10 +77,10 @@
                       {% csrf_token %}
                       <input type="text" name="username" placeholder="Username">
 					  <input type="password" name="password" placeholder="Password">
+                      {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                      {% endif %}
 					  <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                        {% if next %}
-                        <input type="hidden" name="next" value="{{ next }}">
-                        {% endif %}
 				  </form>
                   <div class="login-help">
 					<a href="#">Forgot Password</a>
@@ -88,20 +88,6 @@
 				</div>
 			</div>
 		  </div>
-
-           <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	    <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Sign Up</h1><br>
-				  <form id="signup_form" method="post" enctype="multipart/form-data" action="">
-                      {% csrf_token %}
-                      <input type="text" name="username" placeholder="Username">
-					  <input type="password" name="password" placeholder="Password">
-					  <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-				  </form>
-			</div>
-		   </div>
-           </div>
         </ul>
         <!-- Navbar right end -->
     </div>
