@@ -18,8 +18,6 @@ ALLOWED_HOSTS = [
     '.gsrana.com',
 ]
 
-LOGIN_URL = '/'
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,10 +26,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'blog',
     'bootstrap3',
     'captcha',
     'dashboard',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +66,15 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -98,4 +111,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
+# Login & auth settings
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = "none"
+SOCIALACCOUNT_QUERY_EMAIL = True
