@@ -1,3 +1,3 @@
 # mysite
 
-sudo apt-get install libpq-dev python-dev for postgres2
+sudo apt-get install python-dev libmysqlclient-dev mysql-server

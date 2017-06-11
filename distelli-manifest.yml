@@ -1,7 +1,5 @@
 grana2884/mysite:
- Build:
-  - ls -lRa
- 
+
  PkgInclude:
   - '*'
  
