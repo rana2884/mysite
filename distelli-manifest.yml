@@ -14,7 +14,6 @@ grana2884/mysite:
   - DB_PORT: unknown
   - ROOT: unknown
   - KEY: unknown
-  - ENVIRONMENT: unknown
 
  PreInstall:
   - echo "===Begin Preinstall==="
@@ -25,7 +24,7 @@ grana2884/mysite:
   - echo "===Begin PostInstall==="
   - ls -lRa
   - sudo rsync -a /$DISTELLI_INSTALLHOME/* $ROOT/
-  - sudo chown -R www-data:www-data $ROOT
+  - sudo chown -R ubuntu:www-data $ROOT
   - echo "===Done with PostInstall==="
 
  PreStart:
@@ -42,7 +41,7 @@ grana2884/mysite:
 
  Start:
   - echo "===Begin Start==="
-  - sudo service nginx restart
-  - sudo service uwsgi restart
+  - sudo systemctl restart nginx
+  - sudo systemctl restart uwsgi
   - echo "=====Done with Start======" 
   - echo "===============APPLICATION READY=================" 
