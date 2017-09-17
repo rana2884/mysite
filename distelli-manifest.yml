@@ -36,8 +36,8 @@ grana2884/mysite:
   - sudo sed -i 's/db-pwd/'$DB_PASSWORD'/g' $ROOT/config/settings/prod.py
   - sudo sed -i 's/db-port/'$DB_PORT'/g' $ROOT/config/settings/prod.py
   - sudo sed -i 's/key/'$KEY'/g' $ROOT/config/settings/prod.py
-  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' $ROOT/config/wsgi.py
-  - sudo sed -i 's/config.settings.local/'config.settings.prod'/g' $ROOT/manage.py
+  - sudo sed -i 's/config.settings.dev/'config.settings.prod'/g' $ROOT/config/wsgi.py
+  - sudo sed -i 's/config.settings.dev/'config.settings.prod'/g' $ROOT/manage.py
   - echo "===Done with PreStart==="
 
  Start:

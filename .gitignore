@@ -52,7 +52,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-local_settings.py
 
 # Sphinx documentation
 docs/_build/
@@ -74,7 +73,5 @@ ENV/
 .idea/
 
 # mysite
-static/.DS_Store
-static/fonts/.DS_Store
-/config/settings/local.py
+/config/settings/dev.py
 
